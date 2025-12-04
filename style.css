@@ -1,1 +1,323 @@
+/* ===========================
+   VARIÁVEIS DO TEMA
+=========================== */
+:root {
+  --bg:#0b0b0b;
+  --card:#111;
+  --muted:#e9e9e9;
+  --accent:#ffd400;
+  --accent-contrast:#111;
+  --radius:10px;
 
+  font-family:"Inter", system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+/* ===========================
+   BASE DO SITE
+=========================== */
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+
+.container {
+  width: calc(100% - 40px);
+  max-width:1100px;
+  margin:0 auto;
+  padding:25px 0;
+}
+
+h1, h2, h3, h4 {
+  margin:0 0 12px;
+  font-weight:700;
+}
+
+/* ===========================
+   HEADER / BARRA PRETA
+=========================== */
+.site-header {
+  position:relative;
+  width:100%;
+  height:80px;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+}
+
+/* LOGO À ESQUERDA */
+.brand {
+  position:absolute;
+  top:50%;
+  left:15px;
+  transform:translateY(-50%);
+  display:flex;
+  align-items:center;
+  height:80px;
+  z-index:3000;
+}
+
+.logo {
+  height:58px;
+  width:auto;
+}
+
+/* ===========================
+   ÍCONES SOCIAIS (DIREITA)
+=========================== */
+.social-top {
+  position:absolute;
+  right:15px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  gap:18px;
+  z-index:3000;
+}
+
+.social-icon {
+  opacity:0.85;
+  transition:.2s;
+}
+
+.social-icon:hover {
+  opacity:1;
+  transform:scale(1.15);
+}
+
+/* ===========================
+   MENU PRINCIPAL
+=========================== */
+.main-nav {
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.main-nav ul {
+  display:flex;
+  gap:25px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.main-nav a {
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  padding:8px 10px;
+  border-radius:6px;
+  transition:.2s;
+}
+
+.main-nav a:hover {
+  background:rgba(255,255,255,0.1);
+}
+
+/* MENU MOBILE */
+.menu-toggle {
+  display:none;
+  background:none;
+  border:0;
+  font-size:32px;
+  color:white;
+  position:absolute;
+  right:50%;
+  transform:translateX(50%);
+  top:50%;
+  transform:translate(50%, -50%);
+  z-index:4000;
+}
+
+/* ===========================
+   HERO / CAPA
+=========================== */
+.hero {
+  min-height:420px;
+  background-image:url('carros-hero.jpg');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:flex-end;
+  position:relative;
+}
+
+.hero-overlay {
+  width:100%;
+  background:linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.9));
+  padding:100px 0 60px;
+}
+
+.hero-content {
+  max-width:700px;
+}
+
+.hero-content h1 {
+  font-size:46px;
+  text-shadow:0 3px 15px rgba(0,0,0,0.6);
+}
+
+.lead {
+  font-size:18px;
+  margin-bottom:20px;
+  color:rgba(255,255,255,0.85);
+}
+
+/* BOTÕES */
+.btn {
+  display:inline-block;
+  padding:12px 20px;
+  font-weight:600;
+  border-radius:8px;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.btn-primary {
+  background:var(--accent);
+  color:var(--accent-contrast);
+  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+}
+
+.btn-outline {
+  border:1px solid rgba(255,255,255,0.3);
+  color:white;
+  background:transparent;
+}
+
+/* ===========================
+   ESTOQUE — CARDS
+=========================== */
+.car-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+  margin-top:20px;
+}
+
+.car-card {
+  background:#111;
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);
+  padding:15px;
+  text-align:center;
+  transition:.25s;
+}
+
+.car-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+.car-card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:var(--radius);
+}
+
+.price {
+  display:block;
+  margin:10px 0;
+  font-size:20px;
+  font-weight:700;
+  color:var(--accent);
+}
+
+/* ===========================
+   FINANCIAMENTO
+=========================== */
+.promo-box {
+  background:linear-gradient(90deg, rgba(255,212,0,0.08), rgba(255,212,0,0.03));
+  border-left:5px solid var(--accent);
+  padding:20px;
+  border-radius:var(--radius);
+}
+
+/* ===========================
+   SOBRE
+=========================== */
+.about {
+  font-size:17px;
+  color:rgba(255,255,255,0.9);
+}
+
+/* ===========================
+   CONTATO
+=========================== */
+.contact {
+  font-size:17px;
+}
+
+.contact p {
+  margin:3px 0;
+}
+
+/* ===========================
+   RODAPÉ
+=========================== */
+.site-footer {
+  border-top:1px solid rgba(255,255,255,0.05);
+  text-align:center;
+  padding:20px 0;
+  color:#bbb;
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+@media (max-width: 900px) {
+  .car-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media (max-width: 700px) {
+
+  .menu-toggle {
+    display:block;
+  }
+
+  .main-nav {
+    display:none;
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    background:#000;
+    padding:20px 0;
+    flex-direction:column;
+  }
+
+  .main-nav ul {
+    flex-direction:column;
+    gap:15px;
+  }
+
+  .car-grid {
+    grid-template-columns:1fr;
+  }
+
+  .hero-content h1 {
+    font-size:32px;
+  }
+
+  .brand {
+    left:10px;
+  }
+
+  .social-top {
+    right:10px;
+  }
+}
